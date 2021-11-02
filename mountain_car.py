@@ -34,8 +34,8 @@ class sarsaAgent():
         self.num_tiles = 8
 
         self.env = gym.make('MountainCar-v0')
-        self.epsilon_T1 = 0.01
-        self.epsilon_T2 = 0.01
+        self.epsilon_T1 = 0.0001
+        self.epsilon_T2 = 0.0001
         self.learning_rate_T1 = 0.1
         self.learning_rate_T2 = 0.1
         self.weights_T1 = np.zeros(3*self.dim)
@@ -115,7 +115,7 @@ class sarsaAgent():
         delta = reward + bootstraped_value - current_value
 
         combined_state = np.zeros(3*gap)
-        combined_state[action*gap:(action+1)*gap] = state 
+        combined_state[action*gap:(action+1)*gap] = state/np.linalg.norm(state)
 
         weights  = weights + learning_rate*(delta)*combined_state
 

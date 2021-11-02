@@ -1,0 +1,10 @@
+For training the agent on Mountain Car, run the following command:
+ python mountain_car.py --task [T1/T2] --train 1
+
+ This will generate the plots and the saved weight in the same directory for the task on which you have trained.
+
+ To test the trained policy, simply run 
+
+  python mountain_car.py --task [T1/T2] --train 0
+
+  This will output the average reward over 100 test episodes
